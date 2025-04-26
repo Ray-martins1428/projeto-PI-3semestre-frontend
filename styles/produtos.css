@@ -1,0 +1,39 @@
+/* ------------------------------ */
+/* TÍTULO E TOPO DA PÁGINA       */
+/* ------------------------------ */
+
+.topo-produtos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  
+  .titulo-e-links {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    width: 100%;
+  }
+  
+  .titulo-produtos {
+    font-size: 120px;
+    color: #333;
+    margin-bottom: 1rem;
+    margin-top: -50px;
+  }
+  
+  .link-acao {
+    text-decoration: none;
+    color: #B9B9B9;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 3px;
+  }
+  
+  .link-acao:hover {
+    color: #000;
+  }
+  

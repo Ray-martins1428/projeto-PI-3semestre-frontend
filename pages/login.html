@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da aba do navegador -->
+    <title>Maurinho Montanha</title>
+
+    <!-- Fonte personalizada do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícone da aba -->
+    <link rel="icon" type="image/png" href="/assets/icones/logo_maurinho_branca.png">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/login.css">
+
+    <!-- Espaço reservado para script futuro -->
+    <script src=""></script>
+</head>
+
+<body>
+    <!-- Seção da esquerda com fundo preto e frase -->
+    <div class="left_section_black"> 
+        <h2>
+            <div class="h2-1">Do papel para o digital:</div>
+            <div class="h2-2">mais rapidez nos pedidos.</div>
+        </h2>
+    </div>
+
+    <!-- Seção da direita com formulário de login -->
+    <div class="right_section_email">
+        <img src="/assets/imagens/logo_maurinho_preta.png" alt="Maurinho Montanha Lanches">
+        
+        <h2>Acesse seu Sistema</h2>
+        
+    <!-- FORMULÁRIO DE LOGIN -->
+<form id="login-form">
+    <label for="usuario">Usuário:</label>
+    <input type="text" id="usuario" placeholder="Digite seu Usuário" required>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" placeholder="Sua Senha" required>
+
+    <!-- Link de recuperação de senha via WhatsApp -->
+    <div class="password-reset">
+        Esqueceu a senha? 
+        <a href="https://api.whatsapp.com/send/?phone=5519993887230&text&type=phone_number&app_absent=0" target="_blank">
+            <span>Fale Conosco</span>
+        </a>
+    </div>
+
+    <!-- Botão de envio -->
+    <button type="submit">Login</button>
+</form>
+
+<!-- Importar o JavaScript -->
+<script src="/scripts/pages/login.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* ------------------------------ */
+/* TOPO DA PÁGINA: TÍTULO E LINKS */
+/* ------------------------------ */
+.topo-mesas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.titulo-e-links {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.titulo-mesas {
+  font-size: 120px;
+  color: #333;
+  margin-bottom: 1rem;
+  margin-top: -50px;
+}
+
+.link-acao {
+  text-decoration: none;
+  color: #B9B9B9;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 3px;
+}
+
+.link-acao:hover {
+  color: #000;
+}
+
+
+/* ------------------------------ */
+/* BARRA DE PESQUISA              */
+/* ------------------------------ */
+.barra-pesquisa-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1350px;
+  margin-top: -30px;
+}
+
+.barra-pesquisa-wrapper i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+}
+
+#pesquisa-mesa {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+
+/* ------------------------------ */
+/* GRADE DE MESAS (LAYOUT GRID)   */
+/* ------------------------------ */
+.grid-mesas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-top: -3rem; 
+}
+
+
+/* ------------------------------ */
+/* ESTILO DE CADA MESA            */
+/* ------------------------------ */
+.mesa {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 2.5rem 1rem 1rem 1rem;
+  font-weight: 600;
+  font-size: 20px;
+  color: #333;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  top: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 120px;
+}
+
+.mesa:hover {
+  transform: scale(1.02);
+  background-color: #f8f8f8;
+}
+
+
+/* ------------------------------ */
+/* TAG DE STATUS DAS MESAS        */
+/* ------------------------------ */
+.tag-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-transform: capitalize;
+}
+
+.livre {
+  background-color: #28a745;
+}
+
+.ocupada {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.fechada {
+  background-color: #dc3545;
+}
+
+
+/* ------------------------------ */
+/* TEXTO DO NOME DA MESA          */
+/* ------------------------------ */
+.mesa-nome {
+  margin-top: 0;
+  font-size: 22px;
+  padding-left: 0.2rem;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- METADADOS E TÍTULO DA PÁGINA -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Montanha App - Mesas</title>
+
+  <!-- ÍCONES (FONT AWESOME) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/> <!-- LINK PARA OS ICONES-->
+
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="/assets/imagens/logo_maurinho_branca.png" type="image/x-icon" />
+
+  <!-- ESTILOS CSS -->
+  <link rel="stylesheet" href="/styles/menu.css" />
+  <link rel="stylesheet" href="/styles/mesas.css" />
+</head>
+
+<body>
+  <!-- ================================ -->
+  <!-- MENU LATERAL FIXO                -->
+  <!-- ================================ -->
+  <nav id="sidebar">
+    <div id="sidebar_content">
+      <!-- LOGO E INFORMAÇÕES -->
+      <div id="logo">
+        <img src="/assets/imagens/logo_maurinho_branca.png" id="logo_branca" alt="Logo" />
+        <p id="logo_infos">
+          <span class="item-description">Maurinho Montanha</span>
+          <span class="item-description">Lanches</span>
+        </p>
+      </div>
+
+      <!-- ITENS DO MENU -->
+      <ul id="side-items">
+        <li class="side-item active">
+          <a href="mesas.html">
+            <i class="fa-solid fa-house"></i>
+            <span class="item-description">Início</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="produtos.html">
+            <i class="fa-solid fa-burger"></i>
+            <span class="item-description">Produtos</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="historico.html">
+            <i class="fa-solid fa-chart-line"></i>
+            <span class="item-description">Histórico</span>
+          </a>
+        </li>
+        <li class="side-item">
+          <a href="configuracoes.html">
+            <i class="fa-solid fa-gear"></i>
+            <span class="item-description">Configurações</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- BOTÃO PARA EXPANDIR/RECOLHER O MENU -->
+      <button id="open_btn">
+        <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- BOTÃO DE LOGOUT -->
+    <div id="logout">
+      <button id="logout_btn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="item-description">Logout</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ================================ -->
+  <!-- CONTEÚDO PRINCIPAL DA PÁGINA    -->
+  <!-- ================================ -->
+  <main id="main-content">
+
+    <!-- TOPO COM TÍTULO E LINKS -->
+    <div class="topo-mesas">
+      <div class="titulo-e-links">
+        <h1 class="titulo-mesas">Mesas</h1>
+        <div class="acoes-mesas">
+          <a href="#" class="link-acao">Contato</a>
+          <a href="#" class="link-acao">Sobre</a>
+        </div>
+      </div>
+    
+      <!-- BARRA DE PESQUISA -->
+      <div class="barra-pesquisa-wrapper">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="pesquisa-mesa" placeholder="Pesquisar mesa...">
+      </div>
+    </div>
+    
+    <!-- ÁREA ONDE AS MESAS SERÃO RENDERIZADAS -->
+    <section id="mesas-container" class="grid-mesas">
+      <!-- Mesas serão geradas aqui dinamicamente -->
+    </section>
+  </main>
+
+  <!-- ================================ -->
+  <!-- SCRIPTS JAVASCRIPT              -->
+  <!-- ================================ -->
+  <script src="/scripts/menu.js"></script>
+  <script src="/scripts/mesas.js"></script>
+</body>
+</html>
