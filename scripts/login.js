@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const senha = document.getElementById("senha").value;     // Pega o valor digitado no campo de senha
 
         try {   // Tenta fazer a requisição para a API de login
-            const response = await fetch('URL_DA_API_AQUI', { // { <-- Abertura do objeto de configuração do fetch
+            const response = await fetch('/usuarios/login/:login', { // { <-- Abertura do objeto de configuração do fetch
                 method: 'POST', // Método de envio: POST = estamos enviando dados
                 headers: {      // { <-- Abertura do cabeçalho da requisição
                     'Content-Type': 'application/json' // Dizemos que estamos enviando um JSON

@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Montanha App - Produtos</title>
 
+  <!-- Ícones da biblioteca Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+  <!-- Ícone da aba (favicon) -->
   <link rel="shortcut icon" href="/assets/imagens/logo_maurinho_branca.png" type="image/x-icon" />
+
+  <!-- Estilos personalizados -->
   <link rel="stylesheet" href="/styles/menu.css" />
   <link rel="stylesheet" href="/styles/produtos.css" />
 </head>
 
 <body>
-  <nav id="sidebar">   <!-- MENU LATERAL -->
-
+  <!-- MENU LATERAL -->
+  <nav id="sidebar">
     <div id="sidebar_content">
+      
+      <!-- Logo e nome do restaurante -->
       <div id="logo">
         <img src="/assets/imagens/logo_maurinho_branca.png" id="logo_branca" alt="Logo" />
         <p id="logo_infos">
@@ -26,6 +32,7 @@
         </p>
       </div>
 
+      <!-- Itens do menu -->
       <ul id="side-items">
         <li class="side-item">
           <a href="mesas.html">
@@ -34,6 +41,7 @@
           </a>
         </li>
         <li class="side-item active">
+          <!-- Página atual: Produtos -->
           <a href="produtos.html">
             <i class="fa-solid fa-burger"></i>
             <span class="item-description">Produtos</span>
@@ -52,12 +60,9 @@
           </a>
         </li>
       </ul>
-
-      <button id="open_btn">
-        <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
-      </button>
     </div>
 
+    <!-- Botão de logout -->
     <div id="logout">
       <button id="logout_btn">
         <i class="fa-solid fa-right-from-bracket"></i>
@@ -66,17 +71,112 @@
     </div>
   </nav>
 
-  <main id="main-content">   <!-- CONTEÚDO PRINCIPAL -->
+  <!-- Botão para abrir/fechar o menu lateral -->
+  <button id="open_btn">
+    <i id="open_btn_icon" class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="main-content">
+
+    <!-- Cabeçalho da seção de produtos -->
     <div class="topo-produtos">
       <div class="titulo-e-links">
         <h1 class="titulo-produtos">Produtos</h1>
         <div class="acoes-produtos">
+          <!-- Links adicionais -->
           <a href="#" class="link-acao">Contato</a>
           <a href="#" class="link-acao">Sobre</a>
         </div>
       </div>
+    </div>
+
+    <!-- SEÇÃO PRINCIPAL - LISTA DE PRODUTOS -->
+    <section class="produtos-wrapper">
+      <h2>Lista De Edição</h2>
+
+      <!-- Botão para abrir o modal de novo produto -->
+      <button id="btn-novo-produto">Novo Produto</button>
+
+      <!-- Tabela com os produtos cadastrados -->
+      <table id="produtos-tabela">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Volume</th>
+            <th>Valor (R$)</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Os dados serão inseridos dinamicamente via JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- MODAL DE EDIÇÃO DE PRODUTO -->
+    <dialog id="modal-editar">
+      <form method="dialog" id="form-editar">
+        <h2>Editar produto</h2>
+
+        <!-- Campo oculto para armazenar o ID do produto -->
+        <input type="hidden" id="edit-id" />
+
+        <!-- Campos do formulário -->
+        <label>Nome
+          <input type="text" id="edit-nome" required />
+        </label>
+
+        <label>Descrição
+          <input type="text" id="edit-descricao" required />
+        </label>
+
+        <label>Volume
+          <input type="text" id="edit-volume" required />
+        </label>
+
+        <label>Valor
+          <input type="number" step="0.01" id="edit-valor" required />
+        </label>
+
+        <!-- Botões de ação -->
+        <menu>
+          <button id="btn-cancelar" type="reset">Cancelar</button>
+          <button id="btn-salvar" type="submit">Salvar</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <!-- MODAL PARA CADASTRAR NOVO PRODUTO -->
+    <dialog id="modal-novo-produto">
+      <form id="form-novo-produto">
+        <h2>Novo Produto</h2>
+
+        <!-- Campos do formulário -->
+        <label for="novo-nome">Nome:</label>
+        <input type="text" id="novo-nome" required />
+
+        <label for="novo-descricao">Descrição:</label>
+        <textarea id="novo-descricao" required></textarea>
+
+        <label for="novo-volume">Volume:</label>
+        <input type="text" id="novo-volume" required />
+
+        <label for="novo-valor">Valor:</label>
+        <input type="number" step="0.01" id="novo-valor" required />
+
+        <!-- Botões de ação -->
+        <menu>
+          <button type="button" id="btn-cancelar-novo">Cancelar</button>
+          <button type="submit" id="btn-salvar-novo">Salvar</button>
+        </menu>
+      </form>
+    </dialog>
   </main>
 
+  <!-- Scripts de funcionalidades -->
   <script src="/scripts/menu.js"></script>
+  <script src="/scripts/produtos.js"></script>
 </body>
 </html>

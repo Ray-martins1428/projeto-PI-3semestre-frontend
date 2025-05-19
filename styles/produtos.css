@@ -1,39 +1,220 @@
 /* ------------------------------ */
-/* TÍTULO E TOPO DA PÁGINA       */
+/* TÍTULO E TOPO DA PÁGINA        */
 /* ------------------------------ */
 
+/* Container principal do topo da página de produtos */
 .topo-produtos {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2rem;
-    gap: 2rem;
-  }
-  
-  .titulo-e-links {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.2rem;
-    width: 100%;
-  }
-  
-  .titulo-produtos {
-    font-size: 120px;
-    color: #333;
-    margin-bottom: 1rem;
-    margin-top: -50px;
-  }
-  
-  .link-acao {
-    text-decoration: none;
-    color: #B9B9B9;
-    font-size: 15px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    padding: 3px;
-  }
-  
-  .link-acao:hover {
-    color: #000;
-  }
-  
+  display: flex;                 /* Ativa o flexbox */
+  flex-direction: column;       /* Organiza os itens em coluna */
+  align-items: flex-start;      /* Alinha os itens à esquerda */
+  padding: 1.25rem 2rem;        /* Espaçamento interno: cima/baixo e lados */
+  gap: 1.25rem;                 /* Espaçamento entre os elementos internos */
+}
+
+/* Container que agrupa o título e os links */
+.titulo-e-links {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Estilo do título principal da página */
+.titulo-produtos {
+  font-size: 120px;
+  color: #333;
+  margin: -40px 0 0.5rem;       /* Move o título para cima e reduz espaço inferior */
+}
+
+/* Links de ação no topo da página */
+.link-acao {
+  text-decoration: none;
+  color: #B9B9B9;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;  /* Suaviza a mudança de cor no hover */
+  padding: 3px;
+}
+
+/* Hover nos links de ação */
+.link-acao:hover {
+  color: #000;
+}
+
+
+/* ------------------------------ */
+/* CRUD – LISTA / TABELA / MODAIS */
+/* ------------------------------ */
+
+/* Container principal da lista de produtos */
+.produtos-wrapper {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 2rem 2rem;         /* Margens externas */
+  padding: 1.25rem 1.5rem;     /* Espaçamento interno */
+  background: #212121;         /* Cor de fundo escura */
+  border-radius: 5px;          /* Cantos arredondados */
+  border: 1px solid #d6d6d6;   /* Borda cinza */
+}
+
+/* Título da seção de produtos */
+.produtos-wrapper h2 {
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  font-size: 50px;
+}
+
+
+/* Botão para adicionar novo produto */
+#btn-novo-produto {
+  margin-bottom: 25px;
+  padding: 8px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #414040;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+}
+
+/* Efeito hover no botão "Novo Produto" */
+#btn-novo-produto:hover {
+  opacity: 0.9;
+}
+
+
+/* -------- TABELA DE PRODUTOS -------- */
+
+/* Estilização da tabela */
+.produtos-wrapper table {
+  width: 100%;
+  border-collapse: collapse;    /* Remove espaçamento entre células */
+  background: #171717;          /* Fundo escuro */
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+  color: #ffff;
+}
+
+/* Células da tabela (cabeçalho e conteúdo) */
+.produtos-wrapper th,
+.produtos-wrapper td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #616161;
+}
+
+/* Cabeçalho da tabela */
+.produtos-wrapper th {
+  background: #2F2F2F;
+}
+
+
+/* -------- BOTÕES DE AÇÃO (editar/excluir) -------- */
+
+/* Botões gerais de ação */
+.btn-editar,
+.btn-excluir {
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Botão de editar */
+.btn-editar {
+  background: #9B2A52;
+  color: #fff;
+}
+
+/* Botão de excluir */
+.btn-excluir {
+  background: #94050B;
+  color: #fff;
+}
+
+/* Hover para ambos os botões */
+.btn-editar:hover,
+.btn-excluir:hover {
+  opacity: 0.9;
+}
+
+
+/* --------------------------- */
+/* MODAIS (pop-ups centralizados) */
+/* --------------------------- */
+
+/* Modal de edição e criação de produto */
+#modal-editar,
+#modal-novo-produto {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* Centraliza na tela */
+  border: none;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,.25);
+  width: 350px;
+  background: #FFFFFF;
+  z-index: 1000;                     /* Fica acima de outros elementos */
+}
+
+/* Fundo escurecido atrás do modal */
+#modal-editar::backdrop,
+#modal-novo-produto::backdrop {
+  background: rgba(0,0,0,.45);
+}
+
+
+/* -------- FORMULÁRIOS DENTRO DOS MODAIS -------- */
+
+/* Estilo dos labels */
+#modal-editar form label,
+#modal-novo-produto form label {
+  display: block;
+  margin: 0.6rem 0 0.2rem;
+  font-weight: 600;
+}
+
+/* Estilo dos inputs e textareas */
+#modal-editar form input,
+#modal-editar form textarea,
+#modal-novo-produto form input,
+#modal-novo-produto form textarea {
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;  /* Permite redimensionar verticalmente */
+}
+
+/* Container dos botões dentro do modal */
+#modal-editar menu,
+#modal-novo-produto menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+/* -------- BOTÕES DOS MODAIS -------- */
+
+/* Botões de cancelar */
+#btn-cancelar,
+#btn-cancelar-novo {
+  background: #212121;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Botões de salvar */
+#btn-salvar,
+#btn-salvar-novo {
+  background: #9B2A52;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+}

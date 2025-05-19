@@ -1,167 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
+/* ================================================================= */
+/* RESET BÁSICO                                                      */
+/* ================================================================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
-main {
-    padding: 20px;
-}
-
+/* ================================================================= */
+/* SIDEBAR FIXO                                                      */
+/* ================================================================= */
 #sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #1e1e1e;
-    height: 100vh;
-    border-radius: 0px 18px 18px 0px;
-    position: relative;
-    transition: all .5s;
-    min-width: 82px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 82px;                      /* largura fechada */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #1e1e1e;
+  border-radius: 0 18px 18px 0;
+  overflow-y: auto;                 /* scroll interno vertical */
+  overflow-x: hidden;               /* esconde barra horizontal */
+  transition: width 0.35s ease;
 }
 
-#sidebar_content{
-    padding: 12px;
+/* largura quando aberto */
+#sidebar.open-sidebar {
+  width: 260px;
 }
 
-#logo{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
+/* ================================================================= */
+/* MAIN DESLOCADO                                                    */
+/* ================================================================= */
+main {
+  flex: 1;
+  padding: 20px;
+  margin-left: 82px;                /* igual à largura fechada */
+  transition: margin-left 0.35s ease;
+}
+
+#sidebar.open-sidebar + main {
+  margin-left: 260px;
+}
+
+/* ================================================================= */
+/* CONTEÚDO DO SIDEBAR                                               */
+/* ================================================================= */
+#sidebar_content {
+  padding: 12px;
+}
+
+/* logo */
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 #logo_branca {
-    width: 50px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 20px;
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 #logo_infos {
-    display: flex;
-    flex-direction: column;
-    color: #ffff;
-    font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-weight: 500;
 }
 
-#logo_infos span:last-child{
-    font-size: 12px;
-    font-weight: 400;
+#logo_infos span:last-child {
+  font-size: 12px;
+  font-weight: 400;
 }
 
+/* lista de itens */
 #side_items {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
 }
 
 .side-item {
-    border-radius: 8px;
-    padding: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .side-item.active {
-    background-color: #ffffff !important;
+  background: #fff !important;
 }
 
 .side-item.active a {
-    color: #1e1e1e !important;
+  color: #1e1e1e !important;
 }
 
-.side-item:hover:not(.active), #logout_btn:hover {
-    background-color: #000000;
+.side-item:hover:not(.active),
+#logout_btn:hover {
+  background: #000;
 }
 
 .side-item a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #707070;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #707070;
+  transition: color 0.3s;
 }
 
 .side-item a i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
 }
 
-#logout {
-    border-top: 1px solid #707070;
-    padding: 12px;
-}
-
-#logout_btn {
-    border: none;
-    padding: 12px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    text-align: start;
-    cursor: pointer;
-    background-color: transparent;
-    color: #707070;
-    gap: 20px;
-}
-
-#open_btn {
-    position: absolute;
-    top: 30px;
-    right: -10px;
-    background-color: #94050B;
-    color:#fcfcfc;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    border: none;
-    cursor: pointer;
-}
-
-#open_btn_icon {
-    transition: transform 0.3s ease;
-}
-
-.open-sidebar #open_btn_icon {
-    transform: rotate(180deg);
-}
-
+/* descrição só aparece quando aberto */
 .item-description {
-    width: 0px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    transition: width .6s;
-    height: 0px;
-}
-
-#sidebar.open-sidebar {
-    min-width: 15%;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  transition: width 0.35s ease;
 }
 
 #sidebar.open-sidebar .item-description {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
 
 #sidebar.open-sidebar .side-item a {
-    justify-content: flex-start;
-    gap: 14px;
+  justify-content: flex-start;
+  gap: 14px;
 }
 
+/* logout */
+#logout {
+  border-top: 1px solid #707070;
+  padding: 12px;
+}
+
+#logout_btn {
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: #707070;
+  gap: 20px;
+}
+
+/* ================================================================= */
+/* BOTÃO ABRIR/FECHAR                                                */
+/* ================================================================= */
+#open_btn {
+  position: fixed;
+  top: 30px;
+  left: 82px;                       /* alinhado à largura fechada */
+  transform: translateX(-50%);      /* metade pra fora */
+  z-index: 1100;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #94050B;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
+  transition: left 0.35s ease, transform 0.35s ease;
+}
+
+#open_btn_icon {
+  transition: transform 0.35s ease;
+}
+
+/* quando sidebar abre, empurra botão + gira ícone */
+#sidebar.open-sidebar ~ #open_btn {
+  left: 260px;
+  transform: translateX(-50%) rotate(180deg);
+}
